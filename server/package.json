@@ -1,12 +1,14 @@
 {
-  "name": "FullStack-WebBasics-React-Express-MySQL",
+  "name": "server",
   "version": "1.0.0",
   "description": "Olifrans fullStack",
   "main": "index.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
+
   "author": "Olifrans",
   "license": "MIT",
   "dependencies": {

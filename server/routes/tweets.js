@@ -20,6 +20,7 @@ app.get("/tweets", (req, res) => {
   });
 });
 
+
 //GET_ID
 app.get("/tweets/user/:id", (req, res) => {
   let sql = `SELECT * FROM tweet WHERE user_id = ${req.params.id}`;
@@ -36,6 +37,7 @@ app.get("/tweets/user/:id", (req, res) => {
     else res.json({});
   });
 });
+
 
 //POST
 app.post("/tweets", (req, res) => {
