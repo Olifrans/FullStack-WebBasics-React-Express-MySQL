@@ -88,3 +88,6 @@ yarn add react-helmet
 
 
 
+
+Continuar estudo na posição: 18:00
+https://www.youtube.com/watch?v=4JNbKumPMHI&list=PLSP81gW0XjNEEzKShqQ5iozDaVeqIjzpP&index=4
