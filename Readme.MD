@@ -4,55 +4,18 @@
 
 1 - Usando o Yarn como gerenciamento de pacotes o projeto evoluio, já com o NPM houve centenas de erros cabuloso.
 
-2 - Erro no uso do react-router-dom v6 useHistory(), que foi substituído por useNavigate().
-import { useNavigate } from 'react-router-dom';
-const navigate = useNavigate();
-
-
-
 
 ## Na pasta (server) criar o projeto back-end:
 npm init (enter em todos)
-
 ### Instalar as bibliotecas:
-
-yarn add express joi cors moment
+yarn add express joi cors moment nodemon mysql
 
 yarn add express
 yarn add joi
 yarn add cors
 yarn add moment
-
-
-
-
-
-
-
-
-
-
-yarn add express cors mysql2
 yarn add nodemon
-
-
-
-### Criar DB-Mysql no Workbench
-
-### Instalar pacote sequelize:
-yarn add sequelize sequelize-cli
-
-### inicializar o sequelize
-sequelize init
-
-### O comando sequelize init, vai criar alguma pastas
-Delete as pastas (migrations e seeders)
-
-
-
-## Na pasta (client) criar o projeto front-end:
-executar o comando --> npx create-react-app .
-Em seguida delete arquivos desnecessarios do projeto
+yarn add mysql
 
 
 
@@ -61,26 +24,22 @@ Em seguida delete arquivos desnecessarios do projeto
 
 
 
-
-continua curso:
-https://www.youtube.com/watch?v=DO_wR1tx-O0&list=PLpPqplz6dKxUaZ630TY1BFIo5nP-_x-nL&index=3
-posicao revisar tudo
+### Corrigindo erro de conexão do MySQL
+code:'ER_NOT_SUPPORTED_AUTH_MODE', errno:1251, sqlMessage:'Client does, not support authentication protocol requested by server; consider upgrading MySQL client', sqlState: '08004', fatal: true
 
 
+Você tem que reconfigurar o MySQL Server. para isso siga estes passos.
 
+1= Abra o mysql intsaller .
 
-### Instalar as bibliotecas:
-yarn add axios
+2- Clique em Reconfigurar (no servidor mysql esquerdo)
 
-yarn add react-router-dom
+3- Vá para a guia Método de autenticação (clicando em Avançar duas vezes.)
 
-yarn add formik
+4- Em seguida, selecione o botão de opção Use Legacy Authentication Method . Clique em Avançar.
 
-yarn add @mui/material @emotion/react @emotion/styled
+5- Digite sua senha. Clique em Verificar. Vá para Aplicar configuração (clicando em Avançar duas vezes).
 
-yarn add @mui/material @mui/styled-engine-sc styled-components
-
-
-yarn add yup
-
+6- Clique em Executar . Então Finalize.
+É isso. Divirta-se Hackeando!!
 
