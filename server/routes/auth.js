@@ -3,9 +3,11 @@ var app = express();
 var database = require("../config/database");
 var authValidations = require("../validations/auth");
 
-//POST - Lida com autenticação dos usuários
+
+
+
+//POST - Para lidar com autenticação dos usuários
 app.post("/authenticate", (req, res) => {
-  
   //Get decript email e senha
   let requestBody = getCredentialsFromHeaders(req);
 
@@ -18,7 +20,7 @@ app.post("/authenticate", (req, res) => {
       message: error.details[0].message,
     });
   } else {
-    let sql = `SELECT id FROM users WHERE email '${requestBody.email}' AND password =  '${requestBody.password}'`;
+    let sql = `SELECT id FROM users WHERE email = '${requestBody.email}' AND password = '${requestBody.password}'`;
 
     database.query(sql, (err, result) => {
       if (err) {

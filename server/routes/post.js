@@ -3,9 +3,12 @@ var app = express();
 var database = require("../config/database");
 var moment = require("moment");
 
-//GET_All
-app.get("/tweets", (req, res) => {
-  let sql = "SELECT * FROM tweet";
+
+
+
+//GET_All ---> não existe
+app.get("/posts", (req, res) => {
+  let sql = "SELECT * FROM post";
 
   database.query(sql, (err, result) => {
     if (err) {
@@ -22,8 +25,8 @@ app.get("/tweets", (req, res) => {
 
 
 //GET_ID
-app.get("/tweets/user/:id", (req, res) => {
-  let sql = `SELECT * FROM tweet WHERE user_id = ${req.params.id}`;
+app.get("/posts/user/:id", (req, res) => {
+  let sql = `SELECT * FROM post WHERE user_id = ${req.params.id}`;
 
   database.query(sql, (err, result) => {
     if (err) {
@@ -40,8 +43,8 @@ app.get("/tweets/user/:id", (req, res) => {
 
 
 //POST
-app.post("/tweets", (req, res) => {
-  let sql = `INSERT INTO tweet (user_id, content, date_time) VALUES(
+app.post("/posts", (req, res) => {
+  let sql = `INSERT INTO post (user_id, content, date_time) VALUES (
        '${req.body.user_id}',
        '${req.body.content}',
        '${moment().utc().format("YYY-MM-DD hh:mm:ss")}'
@@ -62,10 +65,9 @@ app.post("/tweets", (req, res) => {
   });
 });
 
-
 //DELETE
-app.post("/tweets/:id", (req, res) => {
-  let sql = `DELET FROM tweet WHERE id = ${req.params.id}`;
+app.delete("/posts/:id", (req, res) => {
+  let sql = `DELETE FROM post WHERE id = ${req.params.id}`;
 
   database.query(sql, (err, result) => {
     if (err) {
@@ -83,10 +85,10 @@ app.post("/tweets/:id", (req, res) => {
 });
 
 
-// http://localhost:3001/tweets - GET, POST
-// http://localhost:3001/tweets/user/:id -  GET
+// http://localhost:3001/posts - GET, POST
+// http://localhost:3001/posts/user/:id -  GET
 
-// http://localhost:3001/tweets/:id - DELETE
+// http://localhost:3001/posts/:id - DELETE
 // http://localhost:3001/authenticate - POST login session
 
 module.exports = app;

@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express();
-
 var cors = require("cors");
+
 var database = require("./config/database");
 var port = process.env.PORT || 3001;
 
@@ -24,17 +24,13 @@ app.use(
 );
 
 //Registro de rotas
-app.use("/", [require("./routes/tweets")]);
+app.use("/", [require("./routes/post"), require("./routes/auth")]);
 
 app.listen(port, () => {
   console.log(`Escutando a rota http://localhost:${port}`);
 });
 
-
-
-
-// http://localhost:3001/tweets - GET, POST
-// http://localhost:3001/tweets/user/:id -  GET
-
-// http://localhost:3001/tweets/:id - DELETE
-// http://localhost:3001/authenticate - POST login session
+// http://localhost:3005/posts - GET, POST
+// http://localhost:3005/posts/user/:id - GET
+// http://localhost:3005/posts/:id - DELETE
+// http://localhost:3005/authenticate - POST for login session
